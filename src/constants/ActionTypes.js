@@ -1,4 +1,4 @@
-export const ADD_TODO = 'ADD_TODO'
-export const DELETE_TODO = 'DELETE_TODO'
-export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const ADD_TWEET = 'ADD_TWEET'
+export const DELETE_TWEET = 'DELETE_TWEET'
+export const FAVORITE_TWEET = 'FAVORITE_TWEET'
 

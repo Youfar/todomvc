@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-export default class TodoTextInput extends Component {
+export default class TweetTextInput extends Component {
   static propTypes = {
     onSave: PropTypes.func.isRequired,
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,
-    newTodo: PropTypes.bool
+    newTweet: PropTypes.bool
   }
 
   state = {
@@ -19,7 +19,7 @@ export default class TodoTextInput extends Component {
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
-      if (this.props.newTodo) {
+      if (this.props.newTweet) {
         this.setState({ text: '' })
       }
     }
@@ -30,7 +30,7 @@ export default class TodoTextInput extends Component {
   }
 
   handleBlur = e => {
-    if (!this.props.newTodo) {
+    if (!this.props.newTweet) {
       this.props.onSave(e.target.value)
     }
   }
@@ -40,7 +40,7 @@ export default class TodoTextInput extends Component {
       <input className={
         classnames({
           edit: this.props.editing,
-          'new-todo': this.props.newTodo
+          'new-tweet': this.props.newTweet
         })}
         type="text"
         placeholder={this.props.placeholder}
