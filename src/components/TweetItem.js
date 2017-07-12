@@ -10,36 +10,35 @@ export default class TweetItem extends Component {
     static propTypes = {
         tweet: PropTypes.object.isRequired,
         deleteTweet: PropTypes.func.isRequired,
-        completeTweet: PropTypes.func.isRequired
+        favoriteTweet: PropTypes.func.isRequired
     }
 
-    state = {
-        editing: false
-    }
-
-    handleDoubleClick = () => {
-        this.setState({ editing: true })
-    }
+    // state = {
+    //     editing: false
+    // }
+    //
+    // handleDoubleClick = () => {
+    //     this.setState({ editing: true })
+    // }
 
     handleSave = (id, text) => {
         if (text.length === 0) {
             this.props.deleteTweet(id)
         }
-        this.setState({ editing: false })
+        // this.setState({ editing: false })
     }
 
     render() {
         const {tweet, favoriteTweet, deleteTweet} = this.props
 
-
         let element
-        if (this.state.editing) {
-            element = (
-                <TweetTextInput text={tweet.text}
-                                editing={this.state.editing}
-                                onSave={(text) => this.handleSave(tweet.id, text)}/>
-            )
-        } else {
+        // if (this.state.editing) {
+        //     element = (
+        //         <TweetTextInput text={tweet.text}
+        //                         editing={this.state.editing}
+        //                         onSave={(text) => this.handleSave(tweet.id, text)}/>
+        //     )
+        // } else {
             element = (
                 <div className="view">
                     <input className="toggle"
@@ -58,11 +57,9 @@ export default class TweetItem extends Component {
             return (
                 <li className={classnames({
                     favorite: tweet.favorite,
-                    editing: this.state.editing
                 })}>
                     {element}
                 </li>
             )
         }
-    }
 }

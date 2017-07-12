@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
 import MainSection from '../components/MainSection'
-import * as TweetActions from '../actions/index'
+import * as TweetActions from '../actions'
 
 const App = ({tweets, actions}) => (
   <div>
