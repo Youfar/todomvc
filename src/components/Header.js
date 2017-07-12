@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TodoTextInput from './TodoTextInput'
+import TweetTextInput from './TweetTextInput'
 
 export default class Header extends Component {
   static propTypes = {
-    addTodo: PropTypes.func.isRequired
+    addTweet: PropTypes.func.isRequired
   }
 
   handleSave = text => {
     if (text.length !== 0) {
-      this.props.addTodo(text)
+      this.props.addTweet(text)
     }
   }
 
@@ -17,7 +17,7 @@ export default class Header extends Component {
     return (
       <header className="header">
         <h1>Twitter</h1>
-        <TodoTextInput newTodo
+        <TweetTextInput newTweet
                        onSave={this.handleSave}
                        placeholder="いまどうしてる？" />
       </header>

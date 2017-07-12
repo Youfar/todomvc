@@ -3,18 +3,18 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TodoItem from './TodoItem'
+import TweetItem from './TweetItem'
 import Footer from './Footer'
-import { SHOW_ALL, SHOW_COMPLETED} from '../constants/TodoFilters'
+import { SHOW_ALL, SHOW_FAVORITE} from '../constants/TweetFilters'
 
-const TODO_FILTERS = {
+const TWEET_FILTERS = {
     [SHOW_ALL]: () => true,
-    [SHOW_COMPLETED]: todo => todo.completed
+    [SHOW_FAVORITE]: tweet => tweet.favorite
 }
 
 export default class MainSection extends Component {
     static propTypes = {
-        todos: PropTypes.array.isRequired,
+        tweets: PropTypes.array.isRequired,
         actions: PropTypes.object.isRequired
     }
 
@@ -25,10 +25,10 @@ export default class MainSection extends Component {
     }
 
     renderFooter() {
-        const { todos } = this.props
+        const { tweets } = this.props
         const { filter } = this.state
 
-        if (todos.length) {
+        if (tweets.length) {
             return (
                 <Footer
                         filter={filter}
@@ -38,17 +38,17 @@ export default class MainSection extends Component {
     }
 
     render() {
-        const { todos, actions } = this.props
+        const { tweets, actions } = this.props
         const { filter } = this.state
 
-        const filteredTodos = todos.filter(TODO_FILTERS[filter])
+        const filteredTweets = tweets.filter(TWEET_FILTERS[filter])
 
         return (
             <section className="main">
-              <ul className="todo-list">
+              <ul className="tweet-list">
                 {
-                    filteredTodos.map(todo =>
-                        <TodoItem key={todo.id} todo={todo} {...actions} />
+                    filteredTweets.map(tweet =>
+                        <TweetItem key={tweet.id} tweet={tweet} {...actions} />
                     )}
               </ul>
                 {this.renderFooter()}

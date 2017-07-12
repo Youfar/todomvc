@@ -4,11 +4,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { SHOW_ALL, SHOW_COMPLETED} from '../constants/TodoFilters'
+import { SHOW_ALL, SHOW_FAVORITE} from '../constants/TweetFilters'
 
 const FILTER_TITLES = {
     [SHOW_ALL]: 'All',
-    [SHOW_COMPLETED]: 'Completed'
+    [SHOW_FAVORITE]: 'Favorite'
 }
 
 export default class Footer extends Component {
@@ -34,7 +34,7 @@ export default class Footer extends Component {
         return (
             <footer className="footer">
                 <ul className="filters">
-                    {[ SHOW_ALL, SHOW_COMPLETED ].map(filter =>
+                    {[ SHOW_ALL, SHOW_FAVORITE ].map(filter =>
                         <li key={filter}>
                             {this.renderFilterLink(filter)}
                         </li>

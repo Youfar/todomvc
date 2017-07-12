@@ -2,10 +2,10 @@
  * Created by cho.oh on 西暦17/07/11.
  */
 import { combineReducers } from 'redux'
-import todos from './todos'
+import tweets from './tweets'
 
 const rootReducer = combineReducers({
-    todos
+    tweets
 })
 
 export default rootReducer
